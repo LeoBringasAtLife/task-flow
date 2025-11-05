@@ -2,7 +2,7 @@
 
 Web application for to-do lists built with Flask.
 
-## Características
+## Characteristics
 
 - Add tasks (max. 200 characters)
 - Delete tasks
@@ -14,7 +14,7 @@ Web application for to-do lists built with Flask.
 
 ```
 taskflow/
-├── app.py              # Main Flask application
+├── ar.py              # Main Flask application
 └── templates/
     └── index.html      # HTML Template
 ```
@@ -28,7 +28,7 @@ taskflow/
 
 ```bash
 # Clone repository
-git clone <your-repository>
+git clone https://github.com/LeoBringasAtLife/task-flow.git
 cd taskflow
 
 # Create a virtual environment (optional but recommended)
@@ -44,59 +44,57 @@ pip install flask
 ### Run the server
 
 ```bash
-python app.py --run-server
+python ar.py --run-server
 ```
 
 The application will be available at `http://127.0.0.1:5000`
 
-### Opciones de línea de comandos
+### Command line options
 
 ```bash
-# Servidor en host/puerto personalizado
-python app.py --run-server --host 0.0.0.0 --port 8080
+# Server on custom host/port
+python ar.py --run-server --host 0.0.0.0 --port 8080
 
-# Ejecutar tests unitarios
-python app.py --test
+# Run unit tests
+python ar.py --test
 ```
 
 ## Tests
 
-El proyecto incluye tests unitarios que verifican:
+The project includes unit tests that verify:
 
-- Renderizado correcto de la página principal
-- Agregar tareas válidas
-- Validación de tareas vacías
-- Eliminación de tareas
-- Manejo de índices inválidos
+- Correct rendering of the homepage
+- Adding valid tasks
+- Validation of empty tasks
+- Deletion of tasks
+- Handling of invalid indexes
 
-Ejecutar tests:
+Run tests:
 
 ```bash
-python app.py --test
+python ar.py --test
 ```
 
-## Arquitectura
+## Architecture
 
 ### TaskManager
 
-Clase que gestiona las tareas con thread safety mediante `Lock`:
+Class that manages tasks with thread safety using `Lock`:
 
-- `add_task(task)`: Agrega una tarea válida
-- `delete_task(index)`: Elimina tarea por índice
-- `get_tasks()`: Retorna copia de la lista de tareas
+- `add_task(task)`: Adds a valid task
+- `delete_task(index)`: Deletes a task by index
+- `get_tasks()`: Returns a copy of the task list
 
-### Rutas Flask
+### Flask Routes
 
-- `GET /`: Página principal con lista de tareas
-- `POST /add`: Agregar nueva tarea
-- `GET /delete/<index>`: Eliminar tarea por índice
+- `GET /`: Main page with task list
+- `POST /add`: Add new task
+- `GET /delete/<index>`: Delete task by index
 
-## Validaciones
+## Validations
 
-- Tareas no pueden estar vacías
-- Longitud máxima: 200 caracteres
-- Espacios en blanco son eliminados automáticamente
+- Tasks cannot be empty
+- Maximum length: 200 characters
+- Whitespace is automatically removed
 
-## Licencia
-
-MIT
+<br>
